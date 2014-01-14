@@ -3,15 +3,14 @@ riffy
 
 A RIFF file format parser Ruby gem
 
-gem install riffy
+    gem install riffy
 
 Try it out!
 
-require 'riffy'
-
-file = Riffy.open("bin/test.wav")
-
-puts file.to_s
+    require 'riffy'
+    => true
+    file = Riffy.open("bin/test.wav")
+    puts file.to_s
 
         "RIFF" <104484> (
           "WAVE",
@@ -24,7 +23,8 @@ puts file.to_s
          bits_per_sample: 16     >,
           < "data" <104448>      >
         )
-        
-puts file.format
+    =>nil
+    puts "You have a #{file.format} file!"
+    You have a WAVE file!
+    => nil
 
-WAVE
