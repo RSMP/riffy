@@ -1,7 +1,9 @@
 require_relative '../lib/riffy.rb'
 
 filepath = "../bin/test.wav"
-my_file = Riffy::RIFF.open(filepath)
+file = File.open(filepath, "r")
+riff = Riffy::Chunk.read(file)
+#my_file = Riffy::RIFF.open(filepath)
 
 ##my_file.chunks.each do |chunk|
 #  chunk = my_file.chunks[0]
@@ -23,4 +25,4 @@ my_file = Riffy::RIFF.open(filepath)
 #  
 ##end
 binding.pry
-puts my_file
+#puts my_file
