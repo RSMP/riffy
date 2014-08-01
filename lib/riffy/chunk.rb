@@ -25,11 +25,40 @@ module Riffy
     uint32 :chunk_size
 
     choice :data, selection: :id do
-      riff_data "RIFF"
+      struct "RIFF" do
+        string :form_type, length: 4
+        array :chunks, type: :chunk, read_until: :eoc
+      end
+      struct "LIST" do
+        string :form_type, length: 4
+        array :chunks, type: :chunk, read_until: :eoc
+      end
+      
+      # supported WAVE subchunks
       wav_fmt "fmt "
+      #wav_fact "fact"
+      #wav_slnt "slnt"
+      #wav_cue "cue "
+      #wav_plst "plst"
+      #wav_list "list"
+      #wav_labl "labl"
+      #wav_note "note"
+      #wav_ltxt "ltxt"
+      #wav_smpl "smpl"
+      #wav_inst "inst"
+      
       array :default,
         type: :uint8,
-        initial_length: -> {chunk_size.odd? ? chunk_size+1 : chunk_size}
+        initial_length: :padded_chunks
+    end
+    
+    def eoc
+      # eoc means "end of chunks"
+      data.num_bytes == padded_chunks
+    end
+    
+    def padded_chunks
+      chunk_size.odd? ? chunk_size+1 : chunk_size
     end
     
   end

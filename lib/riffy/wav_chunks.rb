@@ -13,15 +13,20 @@ module Riffy
     # 16 - 19 	     4 	  Bytes Per Second
     # 20 - 21 	     2 	  Bytes Per Sample 	 1=8 bit Mono, 2=8 bit Stereo or 16 bit Mono, 4=16 bit Stereo
     # 22 - 23 	     2 	  Bits Per Sample 	 
-  
-    #string :id, length: 4#, assert: "fmt "
-    #uint32 :chunk_size, assert: 16
+    
     uint16 :compression_code, assert: 1
     uint16 :channels
     uint32 :sample_rate
     uint32 :byte_rate
     uint16 :bytes_per_sample
     uint16 :bits_per_sample
+    
+  end
+
+  class WavFact < BinData::Record
+      
+    endian :little
+    uint32 :data
     
   end
     
