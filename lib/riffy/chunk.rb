@@ -23,18 +23,15 @@ module Riffy
     
     string :id, length: 4
     uint32 :chunk_size
-    array  :data, type: :uint8, length: -> {chunk_size.odd? ? chunk_size+1 : chunk_size}, onlyif: :cant_have_chunks
-    array  :chunks, type: :chunk, initial_length: 2, onlyif: :can_have_chunks
-    
-    def can_have_chunks
-      #binding.pry
-      id.eql? "RIFF"
+
+    choice :data, selection: :id do
+      riff_data "RIFF"
+      wav_fmt "fmt "
+      array :default,
+        type: :uint8,
+        initial_length: -> {chunk_size.odd? ? chunk_size+1 : chunk_size}
     end
     
-    def cant_have_chunks
-      #binding.pry
-      !id.eql?("RIFF")
-    end
   end
   
 end
