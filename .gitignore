@@ -1,0 +1,4 @@
+doc/*.pdf
+bin/*.avi
+bin/*.wav
+!bin/test.wav

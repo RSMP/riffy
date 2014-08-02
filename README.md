@@ -9,22 +9,18 @@ Try it out!
 
     require 'riffy'
     => true
-    file = Riffy.open("bin/test.wav")
+    file = Riffy::RIFF.open("bin/test.wav")
     puts file.to_s
 
-        "RIFF" <104484> (
-          "WAVE",
-          < "fmt " <16>
-        compression_code: 1
-                channels: Mono
-             Sample Rate: 48 kHz
-                Bit Rate: 768 kbps
-        bytes_per_sample: 2
-         bits_per_sample: 16     >,
-          < "data" <104448>      >
-        )
+      id: RIFF
+      file size: 104484
+      form type: WAVE
+        id: fmt
+        size: 16
+        id: data
+        size: 104448
+
     =>nil
     puts "You have a #{file.format} file!"
     You have a WAVE file!
     => nil
-
