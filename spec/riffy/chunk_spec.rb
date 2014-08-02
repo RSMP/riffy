@@ -8,10 +8,11 @@ describe Riffy::Chunk do
   context "when it's a RIFF chunk" do
     it "should have an id of RIFF"
     it "should have a form type"
-    
   end
+  
   context "when it's a LIST chunk" do
     it "should have an id of LIST"
     it "should have a form type"
   end
+  
 end
