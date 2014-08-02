@@ -22,8 +22,76 @@ module Riffy
     uint16 :bits_per_sample
     
   end
+  
+  class WavData < BinData::Array
+    default_parameter initial_length: -> { parent.padded_chunks }
+    uint8
+  end
 
   class WavFact < BinData::Record
+      
+    endian :little
+    uint32 :data
+    
+  end
+
+  class WavSlnt < BinData::Record
+      
+    endian :little
+    uint32 :data
+    
+  end
+
+  class WavCue < BinData::Record
+      
+    endian :little
+    uint32 :data
+    
+  end
+
+  class WavPlst < BinData::Record
+      
+    endian :little
+    uint32 :data
+    
+  end
+
+  class WavList < BinData::Record
+      
+    endian :little
+    uint32 :data
+    
+  end
+
+  class WavLabl < BinData::Record
+      
+    endian :little
+    uint32 :data
+    
+  end
+
+  class WavNote < BinData::Record
+      
+    endian :little
+    uint32 :data
+    
+  end
+
+  class WavLtxt < BinData::Record
+      
+    endian :little
+    uint32 :data
+    
+  end
+
+  class WavSmpl < BinData::Record
+      
+    endian :little
+    uint32 :data
+    
+  end
+
+  class WavInst < BinData::Record
       
     endian :little
     uint32 :data
