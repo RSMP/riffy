@@ -104,7 +104,7 @@ module Riffy
     end
     
     def wave_data
-      if data.form_type.eql? "WAVE"
+      if is_wave?
         data.chunks.select {|chunk| chunk.id.eql? "fmt "}[0].data
       else
         puts "File is not proper format"
@@ -117,6 +117,16 @@ module Riffy
     
     def not_movi?
       !movi?
+    end
+    
+    def form_type
+      if (id.eql?("RIFF") || id.eql?("LIST"))
+        data.form_type
+      end
+    end
+    
+    def is_wave?
+      form_type.eql? "WAVE"
     end
     
   end
