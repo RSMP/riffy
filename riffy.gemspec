@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
     "riffy/wav_data.rb",
     "riffy/wav_fmt.rb"
   ]
+  spec.add_runtime_dependency 'bindata', '~> 2.1', '>=2.1.0'
   spec.add_development_dependency 'rspec', '~> 3.0', '>=3.0.0'
   spec.homepage = 'https://github.com/nicklink483/riffy'
   spec.license = 'MIT'
