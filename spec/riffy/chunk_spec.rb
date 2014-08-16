@@ -4,7 +4,7 @@ describe Riffy::Chunk do
   let(:chunk) {Riffy::Chunk.read(File.open("bin/test.wav", "r"))}
   let(:riff_chunk) {Riffy::Chunk.read(File.open("bin/test.wav", "r"))}
   let(:riff_wave_chunk) {Riffy::Chunk.read(File.open("bin/test.wav", "r"))}
-  let(:list_chunk) {Riffy::Chunk.read(File.open("bin/sample.avi", "r")).data.chunks[0]}
+  #let(:list_chunk) {Riffy::Chunk.read(File.open("bin/sample.avi", "r")).data.chunks[0]}
 
   it "should have an id" do
     expect(chunk.id)
@@ -38,16 +38,16 @@ describe Riffy::Chunk do
   end
   
   context "when it's a LIST chunk" do
-    it "should have an id of LIST" do
-      expect(list_chunk.id).to eql("LIST")
-    end
-    it "should have a form type" do
-      expect(list_chunk.data.form_type)
-    end
-    it "should have its form type accessible through #form_type" do
-      expect(list_chunk.form_type)
-      expect(list_chunk.form_type).to eql(list_chunk.data.form_type)
-    end
+    it "should have an id of LIST" #do
+      #expect(list_chunk.id).to eql("LIST")
+    #end
+    it "should have a form type" #do
+      #expect(list_chunk.data.form_type)
+    #end
+    it "should have its form type accessible through #form_type" #do
+      #expect(list_chunk.form_type)
+      #expect(list_chunk.form_type).to eql(list_chunk.data.form_type)
+    #end
   end
   
 end
