@@ -1,5 +1,10 @@
 riffy
 =====
+[![Gem Version](https://badge.fury.io/rb/riffy.svg)](http://badge.fury.io/rb/riffy)
+[![Build Status](https://travis-ci.org/RSMP/riffy.svg?branch=master)](https://travis-ci.org/RSMP/riffy)
+[![Coverage Status](https://coveralls.io/repos/RSMP/riffy/badge.png)](https://coveralls.io/r/RSMP/riffy)
+[![Dependency Status](https://gemnasium.com/RSMP/riffy.svg)](https://gemnasium.com/RSMP/riffy)
+[![Code Climate](https://codeclimate.com/github/RSMP/riffy/badges/gpa.svg)](https://codeclimate.com/github/RSMP/riffy)
 
 A RIFF file format parser Ruby gem
 

@@ -3,3 +3,6 @@ bin/*.avi
 bin/*.wav
 !bin/test.wav
 .rspec
+*.json
+*.lock
+*.gem
